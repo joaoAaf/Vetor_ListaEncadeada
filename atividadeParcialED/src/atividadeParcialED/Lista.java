@@ -21,6 +21,13 @@ public class Lista {
 		this.ultimo = fim;
 	}*/
 	
-	
+	public boolean vazia(Lista lista) {
+		if (lista.primeiro == null && lista.ultimo == null) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
