@@ -6,6 +6,10 @@ public class No {
 	private No anterior;
 	private No proximo;
 
+	public No() {
+		
+	}
+	
 	public No(No anterior, No proximo, int dado) {
 		this.dado = dado;
 		this.anterior = anterior;

@@ -42,4 +42,22 @@ public class Lista {
 			aux = aux.getProximo();
 		}
 	}
+
+	public int pesquisar(int dado) {
+		No no = inicio;
+		while (no != null && no.getDado() != dado) {
+			no = no.getProximo();
+		}
+		if (no != null && no.getDado() == dado) {
+			return no.getDado();
+		} else {
+			return -1;
+		}
+	}
+	
+	public int excluir(int dado) {
+		 
+		return -1;
+	}
+
 }

@@ -13,6 +13,8 @@ public class teste {
 		lista.inserir(4);
 		
 		lista.exibir();
+		System.out.println();
+		System.out.println(lista.pesquisar(9));
 
 	}
 
