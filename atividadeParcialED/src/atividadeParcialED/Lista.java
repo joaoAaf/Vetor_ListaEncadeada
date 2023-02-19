@@ -2,32 +2,44 @@ package atividadeParcialED;
 
 public class Lista {
 
-	private No primeiro;
-	private No ultimo;
+	private No inicio;
+	private No fim;
 
-	/*public No getInicio() {
-		return primeiro;
+	/*
+	 * public No getInicio() { return primeiro; }
+	 * 
+	 * public void setInicio(No inicio) { this.primeiro = inicio; }
+	 * 
+	 * public No getFim() { return ultimo; }
+	 * 
+	 * public void setFim(No fim) { this.ultimo = fim; }
+	 */
+
+	public boolean vazia() {
+		return inicio == null;
 	}
 
-	public void setInicio(No inicio) {
-		this.primeiro = inicio;
-	}
+	/*
+	 * public void inserirInicio(int dado) { if (vazia()) { primeiro = ultimo = new
+	 * No(dado); } else { primeiro = new No(dado,primeiro); } }
+	 */
 
-	public No getFim() {
-		return ultimo;
-	}
-
-	public void setFim(No fim) {
-		this.ultimo = fim;
-	}*/
-	
-	public boolean vazia(Lista lista) {
-		if (lista.primeiro == null && lista.ultimo == null) {
-			return true;
+	public void inserir(int dado) {
+		No no = new No(inicio, null, dado);
+		if (vazia()) {
+			inicio = fim = no;
+		} else {
+			fim.setProximo(no);
+			fim = no;
 		}
-		else {
-			return false;
-		}
 	}
 
+	public void exibir() {
+		No aux;
+		aux = inicio;
+		while (aux != null) {
+			System.out.println(aux.getDado());
+			aux = aux.getProximo();
+		}
+	}
 }
