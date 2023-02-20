@@ -22,7 +22,7 @@ public class teste {
 		System.out.println();
 		lista.alterar(2, 9);
 		lista.mostrar();
-
+		
 	}
 
 }

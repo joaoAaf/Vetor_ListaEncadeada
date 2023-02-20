@@ -34,11 +34,11 @@ public class Lista {
 	}
 
 	public void mostrar() {
-		No aux;
-		aux = inicio;
-		while (aux != null) {
-			System.out.println("Posição " + aux.getPosicao() + " = " + aux.getDado());
-			aux = aux.getProximo();
+		No no;
+		no = inicio;
+		while (no != null) {
+			System.out.println("Posição " + no.getPosicao() + " = " + no.getDado());
+			no = no.getProximo();
 		}
 	}
 
@@ -66,6 +66,17 @@ public class Lista {
 		}
 	}
 
+	public void corrigirPosicoes() {
+			No no;
+			no = inicio;
+			Integer cont = 0;
+			while (no != null) {
+				no.setPosicao(cont);
+				cont += 1;
+				no = no.getProximo();
+			}	
+	}
+
 	public void excluir(Integer posicao) {
 		No no;
 		no = pesquisarPosicao(posicao);
@@ -74,12 +85,14 @@ public class Lista {
 				if (no == inicio) {
 					inicio = no.getProximo();
 					no.getProximo().setAnterior(null);
+					corrigirPosicoes();
 				} else if (no == fim) {
 					fim = no.getAnterior();
 					no.getAnterior().setProximo(null);
 				} else {
 					no.getAnterior().setProximo(no.getProximo());
 					no.getProximo().setAnterior(no.getAnterior());
+					corrigirPosicoes();
 				}
 			} else {
 				inicio = null;
@@ -89,19 +102,16 @@ public class Lista {
 			System.out.println("Esta posição não existe.");
 		}
 	}
-	
+
 	public void alterar(Integer posicao, int novoDado) {
 		No no;
 		no = pesquisarPosicao(posicao);
 		if (vazia()) {
 			System.out.println("A lista está vazia");
-		}
-		else if (no == null) {
+		} else if (no == null) {
 			System.out.println("Este item não está na lista.");
-		}
-		else {
+		} else {
 			no.setDado(novoDado);
 		}
 	}
-
 }
