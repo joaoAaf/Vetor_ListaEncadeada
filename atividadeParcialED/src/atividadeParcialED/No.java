@@ -5,6 +5,7 @@ public class No {
 	private int dado;
 	private No anterior;
 	private No proximo;
+	private Integer posicao;
 
 	public No() {
 		
@@ -38,6 +39,14 @@ public class No {
 
 	public void setProximo(No proximo) {
 		this.proximo = proximo;
+	}
+
+	public Integer getPosicao() {
+		return posicao;
+	}
+
+	public void setPosicao(Integer posicao) {
+		this.posicao = posicao;
 	}
 
 }

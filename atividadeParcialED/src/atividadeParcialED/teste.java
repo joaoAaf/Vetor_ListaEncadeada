@@ -15,7 +15,10 @@ public class teste {
 		lista.exibir();
 		System.out.println();
 		System.out.println(lista.pesquisar(9));
-
+		System.out.println(lista.pesquisar(10));
+		lista.excluir(4);
+		System.out.println();
+		lista.exibir();
 	}
 
 }

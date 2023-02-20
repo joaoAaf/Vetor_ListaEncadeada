@@ -5,30 +5,33 @@ public class Lista {
 	private No inicio;
 	private No fim;
 
-	/*
-	 * public No getInicio() { return primeiro; }
-	 * 
-	 * public void setInicio(No inicio) { this.primeiro = inicio; }
-	 * 
-	 * public No getFim() { return ultimo; }
-	 * 
-	 * public void setFim(No fim) { this.ultimo = fim; }
-	 */
-
 	public boolean vazia() {
 		return inicio == null;
 	}
 
+	public Integer definePosicao() {
+		Integer posicao;
+		if (vazia()) {
+			return null;
+		} else {
+			posicao = fim.getPosicao() + 1;
+			return posicao;
+		}
+
+	}
+
 	/*
-	 * public void inserirInicio(int dado) { if (vazia()) { primeiro = ultimo = new
-	 * No(dado); } else { primeiro = new No(dado,primeiro); } }
+	 * public void inserir(int dado) { No no = new No(inicio, null, dado); if
+	 * (vazia()) { inicio = fim = no; } else { fim.setProximo(no); fim = no; } }
 	 */
 
 	public void inserir(int dado) {
 		No no = new No(inicio, null, dado);
 		if (vazia()) {
 			inicio = fim = no;
+			no.setPosicao(0);
 		} else {
+			no.setPosicao(definePosicao());
 			fim.setProximo(no);
 			fim = no;
 		}
@@ -38,7 +41,7 @@ public class Lista {
 		No aux;
 		aux = inicio;
 		while (aux != null) {
-			System.out.println(aux.getDado());
+			System.out.println("Posição " + aux.getPosicao() + " = " + aux.getDado());
 			aux = aux.getProximo();
 		}
 	}
@@ -54,10 +57,41 @@ public class Lista {
 			return -1;
 		}
 	}
-	
-	public int excluir(int dado) {
-		 
-		return -1;
+
+	public No pesquisarPosicao(Integer posicao) {
+		No no = inicio;
+		while (no != null && no.getPosicao() != posicao) {
+			no = no.getProximo();
+		}
+		if (no != null && no.getPosicao() == posicao) {
+			return no;
+		} else {
+			return null;
+		}
+	}
+
+	public void excluir(Integer posicao) {
+		No no;
+		no = pesquisarPosicao(posicao);
+		if (no != null) {
+			if (inicio != fim) {
+				if (no == inicio) {
+					inicio = no.getProximo();
+					no.getProximo().setAnterior(null);
+				} else if (no == fim) {
+					fim = no.getAnterior();
+					no.getAnterior().setProximo(null);
+				} else {
+					no.getAnterior().setProximo(no.getProximo());
+					no.getProximo().setAnterior(no.getAnterior());
+				}
+			} else {
+				inicio = null;
+				fim = null;
+			}
+		} else {
+			System.out.println("Esta posição não existe.");
+		}
 	}
 
 }
