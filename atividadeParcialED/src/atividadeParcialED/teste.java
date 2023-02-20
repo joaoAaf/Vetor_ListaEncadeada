@@ -16,7 +16,7 @@ public class teste {
 		System.out.println();
 		System.out.println(lista.pesquisar(9));
 		System.out.println(lista.pesquisar(10));
-		lista.excluir(4);
+		lista.excluir(3);
 		System.out.println();
 		lista.exibir();
 	}

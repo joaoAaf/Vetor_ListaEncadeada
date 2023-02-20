@@ -20,18 +20,14 @@ public class Lista {
 
 	}
 
-	/*
-	 * public void inserir(int dado) { No no = new No(inicio, null, dado); if
-	 * (vazia()) { inicio = fim = no; } else { fim.setProximo(no); fim = no; } }
-	 */
-
 	public void inserir(int dado) {
-		No no = new No(inicio, null, dado);
+		No no = new No(dado);
 		if (vazia()) {
 			inicio = fim = no;
 			no.setPosicao(0);
 		} else {
 			no.setPosicao(definePosicao());
+			no.setAnterior(fim);
 			fim.setProximo(no);
 			fim = no;
 		}

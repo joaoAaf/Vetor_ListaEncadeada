@@ -11,10 +11,8 @@ public class No {
 		
 	}
 	
-	public No(No anterior, No proximo, int dado) {
+	public No(int dado) {
 		this.dado = dado;
-		this.anterior = anterior;
-		this.proximo = proximo;
 	}
 
 	public int getDado() {
