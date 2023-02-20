@@ -33,7 +33,7 @@ public class Lista {
 		}
 	}
 
-	public void exibir() {
+	public void mostrar() {
 		No aux;
 		aux = inicio;
 		while (aux != null) {
@@ -87,6 +87,20 @@ public class Lista {
 			}
 		} else {
 			System.out.println("Esta posição não existe.");
+		}
+	}
+	
+	public void alterar(Integer posicao, int novoDado) {
+		No no;
+		no = pesquisarPosicao(posicao);
+		if (vazia()) {
+			System.out.println("A lista está vazia");
+		}
+		else if (no == null) {
+			System.out.println("Este item não está na lista.");
+		}
+		else {
+			no.setDado(novoDado);
 		}
 	}
 

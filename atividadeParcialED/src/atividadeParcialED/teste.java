@@ -12,13 +12,17 @@ public class teste {
 		lista.inserir(10);
 		lista.inserir(4);
 		
-		lista.exibir();
+		lista.mostrar();
 		System.out.println();
 		System.out.println(lista.pesquisar(9));
 		System.out.println(lista.pesquisar(10));
 		lista.excluir(3);
 		System.out.println();
-		lista.exibir();
+		lista.mostrar();
+		System.out.println();
+		lista.alterar(2, 9);
+		lista.mostrar();
+
 	}
 
 }
