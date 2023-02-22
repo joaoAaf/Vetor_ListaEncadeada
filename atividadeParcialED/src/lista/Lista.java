@@ -1,4 +1,4 @@
-package atividadeParcialED;
+package lista;
 
 public class Lista {
 
