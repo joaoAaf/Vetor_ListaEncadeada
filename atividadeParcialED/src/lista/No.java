@@ -8,9 +8,9 @@ public class No {
 	private Integer posicao;
 
 	public No() {
-		
+
 	}
-	
+
 	public No(int dado) {
 		this.dado = dado;
 	}
@@ -22,7 +22,7 @@ public class No {
 	public void setDado(int dado) {
 		this.dado = dado;
 	}
-	
+
 	public No getAnterior() {
 		return anterior;
 	}

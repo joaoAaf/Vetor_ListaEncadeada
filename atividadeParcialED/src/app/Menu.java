@@ -70,7 +70,7 @@ public class Menu {
 			}
 		}
 	}
-	
+
 	public void menuLista() {
 
 		int op = -1;
