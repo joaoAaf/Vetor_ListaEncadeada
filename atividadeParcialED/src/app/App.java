@@ -1,15 +1,11 @@
 package app;
 
-import menu.MenusInternos;
+import menu.MenuPrincipal;
 
 public class App {
 
 	public static void main(String[] args) {
-		
-		MenusInternos menu = new MenusInternos();
-		
-		menu.menuLista();
-		
+		MenuPrincipal menu = new MenuPrincipal();
+		menu.menuPrincipal();
 	}
-
 }
