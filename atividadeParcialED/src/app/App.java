@@ -1,10 +1,12 @@
 package app;
 
+import menu.MenusInternos;
+
 public class App {
 
 	public static void main(String[] args) {
 		
-		Menu menu = new Menu();
+		MenusInternos menu = new MenusInternos();
 		
 		menu.menuLista();
 		

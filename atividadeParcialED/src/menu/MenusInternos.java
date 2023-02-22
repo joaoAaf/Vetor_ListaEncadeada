@@ -1,10 +1,10 @@
-package app;
+package menu;
 
 import vetor.*;
 import lista.*;
 import java.util.Scanner;
 
-public class Menu {
+public class MenusInternos {
 
 	Scanner leia = new Scanner(System.in);
 
