@@ -44,7 +44,7 @@ public class Menu {
 
 			case 2:
 				vetor.mostraVetor(v);
-				System.out.println("Digite a posição do número a ser alterado:");
+				System.out.println("\nDigite a posição do número a ser alterado:");
 				posicao = leia.nextInt();
 				System.out.println("Digite o número que irá substituí-lo:");
 				dado = leia.nextInt();
@@ -96,26 +96,46 @@ public class Menu {
 			switch (op) {
 
 			case 1:
-
-				
+				System.out.println("\nQuantos números deseja adicionar na lista:");
+				int quant = leia.nextInt();
+				for (int i = 0; i < quant; i++) {
+					System.out.println("Digite o " + (i + 1) + "º número:");
+					dado = leia.nextInt();
+					lista.addDado(dado);
+				}
 				break;
 
 			case 2:
-				
+				lista.mostraLista();
+				System.out.println("\nDigite a posição do número a ser alterado:");
+				posicao = leia.nextInt();
+				System.out.println("Digite o número que irá substituí-lo:");
+				dado = leia.nextInt();
+				lista.alteraDado(posicao, dado);
 				break;
 
 			case 3:
-				
+				lista.mostraLista();
+				System.out.println("\nDigite a posição do número a ser excluído:");
+				posicao = leia.nextInt();
+				lista.excluiDado(posicao);
 				break;
 
 			case 4:
-				
+				System.out.println("Digite o número que deseja pesquisar:");
+				dado = leia.nextInt();
+				int pesquisado = lista.pesquisaDado(dado);
+				if (pesquisado == -1) {
+					System.out.println("Este número não está na lista.");
+				} else {
+					System.out.println("O número " + pesquisado + " está na lista.");
+				}
 				break;
 
 			case 5:
-				
+				lista.mostraLista();
 				break;
-				
+
 			case 6:
 				break;
 
@@ -125,5 +145,5 @@ public class Menu {
 			}
 		}
 	}
-	
+
 }

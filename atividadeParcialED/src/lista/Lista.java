@@ -5,94 +5,94 @@ public class Lista {
 	private No inicio;
 	private No fim;
 
-	public boolean vazia() {
+	public boolean temNada() {
 		return inicio == null;
 	}
 
 	public Integer definePosicao() {
 		Integer posicao;
-		if (vazia()) {
+		if (temNada()) {
 			return null;
 		} else {
 			posicao = fim.getPosicao() + 1;
 			return posicao;
 		}
-
 	}
 
-	public void inserir(int dado) {
-		No no = new No(dado);
-		if (vazia()) {
-			inicio = fim = no;
-			no.setPosicao(0);
+	public void addDado(int dado) {
+		No n = new No(dado);
+		if (temNada()) {
+			inicio = fim = n;
+			n.setPosicao(0);
 		} else {
-			no.setPosicao(definePosicao());
-			no.setAnterior(fim);
-			fim.setProximo(no);
-			fim = no;
+			n.setPosicao(definePosicao());
+			n.setAnterior(fim);
+			fim.setProximo(n);
+			fim = n;
 		}
 	}
 
-	public void mostrar() {
-		No no;
-		no = inicio;
-		while (no != null) {
-			System.out.println("Posição " + no.getPosicao() + " = " + no.getDado());
-			no = no.getProximo();
+	public void mostraLista() {
+		No n;
+		n = inicio;
+		System.out.println("\nLista:\n");
+		while (n != null) {
+			System.out.println("Posição " + n.getPosicao() + ": " + n.getDado());
+			n = n.getProximo();
 		}
 	}
 
-	public int pesquisar(int dado) {
-		No no = inicio;
-		while (no != null && no.getDado() != dado) {
-			no = no.getProximo();
+	public int pesquisaDado(int dado) {
+		No n = inicio;
+		while (n != null && n.getDado() != dado) {
+			n = n.getProximo();
 		}
-		if (no != null && no.getDado() == dado) {
-			return no.getDado();
+		if (n != null && n.getDado() == dado) {
+			return n.getDado();
 		} else {
 			return -1;
 		}
 	}
 
-	public No pesquisarPosicao(Integer posicao) {
-		No no = inicio;
-		while (no != null && no.getPosicao() != posicao) {
-			no = no.getProximo();
+	public No pesquisaPosicao(Integer posicao) {
+		No n = inicio;
+		while (n != null && n.getPosicao() != posicao) {
+			n = n.getProximo();
 		}
-		if (no != null && no.getPosicao() == posicao) {
-			return no;
+		if (n != null && n.getPosicao() == posicao) {
+			return n;
 		} else {
 			return null;
 		}
 	}
 
-	public void corrigirPosicoes() {
-			No no;
-			no = inicio;
-			Integer cont = 0;
-			while (no != null) {
-				no.setPosicao(cont);
-				cont += 1;
-				no = no.getProximo();
-			}	
+	public void corrigePosicoes() {
+		No n;
+		n = inicio;
+		Integer cont = 0;
+		while (n != null) {
+			n.setPosicao(cont);
+			cont += 1;
+			n = n.getProximo();
+		}
 	}
 
-	public void excluir(Integer posicao) {
-		No no;
-		no = pesquisarPosicao(posicao);
-		if (no != null) {
+	public void excluiDado(Integer posicao) {
+		No n;
+		n = pesquisaPosicao(posicao);
+		if (n != null) {
 			if (inicio != fim) {
-				if (no == inicio) {
-					inicio = no.getProximo();
-					no.getProximo().setAnterior(null);
-					corrigirPosicoes();
-				} else if (no == fim) {
-					fim = no.getAnterior();
-					no.getAnterior().setProximo(null);
+				if (n == inicio) {
+					inicio = n.getProximo();
+					n.getProximo().setAnterior(null);
+					corrigePosicoes();
+				} else if (n == fim) {
+					fim = n.getAnterior();
+					n.getAnterior().setProximo(null);
 				} else {
-					no.getAnterior().setProximo(no.getProximo());
-					no.getProximo().setAnterior(no.getAnterior());
-					corrigirPosicoes();
+					n.getAnterior().setProximo(n.getProximo());
+					n.getProximo().setAnterior(n.getAnterior());
+					corrigePosicoes();
 				}
 			} else {
 				inicio = null;
@@ -103,15 +103,15 @@ public class Lista {
 		}
 	}
 
-	public void alterar(Integer posicao, int novoDado) {
-		No no;
-		no = pesquisarPosicao(posicao);
-		if (vazia()) {
+	public void alteraDado(Integer posicao, int dado) {
+		No n;
+		n = pesquisaPosicao(posicao);
+		if (temNada()) {
 			System.out.println("A lista está vazia");
-		} else if (no == null) {
-			System.out.println("Este item não está na lista.");
+		} else if (n == null) {
+			System.out.println("Esta posição não existe.");
 		} else {
-			no.setDado(novoDado);
+			n.setDado(dado);
 		}
 	}
 }

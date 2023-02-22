@@ -6,7 +6,7 @@ public class App {
 		
 		Menu menu = new Menu();
 		
-		menu.menuVetor();
+		menu.menuLista();
 		
 	}
 
