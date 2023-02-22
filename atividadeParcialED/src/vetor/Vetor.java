@@ -1,7 +1,5 @@
 package vetor;
 
-import java.util.Scanner;
-
 public class Vetor {
 
 	private int[] vetor;
@@ -9,8 +7,6 @@ public class Vetor {
 	public Vetor(int[] vetor) {
 		this.vetor = vetor;
 	}
-
-	Scanner leia = new Scanner(System.in);
 
 	public void addDado(int dado, int posicao) {
 		vetor[posicao] = dado;
